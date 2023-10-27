@@ -1,42 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <h3>th:text예시</h3>
-    <p th:text=" '안녕하세요.' + ${hello} ">안녕 반가워</p>
-    <br />
-    <h3>th:utext예시</h3>
-    <p th:utext="${hello}">hello</p>
-    <br />
-    <h3>th:value예시</h3>
-    <input th:value="${value}" />
-    <br />
-    <h3>th:with예시</h3>
-    <div th:with="temp=${with}" th:text="${temp}"></div>
-    <br />
-    <h3>th:href예시</h3>
-    <a th:href="@{/{id}(id=${link})}">링크</a>
-    <br />
-    <h3>th:src예시</h3>
-    <img th:src="${img}" />
-    <br />
-    <h3>th:swith예시</h3>
-    <div th:swith="${userRole}">
-        <p th:case="'admin'">Hello, Admin</p>
-        <p th:case="'user'">Hello, User</p>
-        <p th:case="'*'">Hello, Unknown</p>
-    </div>
-    <br />
-    <h3>th:if, th:unless예시</h3>
-    <div>
-        <p th:if="${isAdmin}">Welcome, Admin</p>
-        <p th:unless="${isAdmin}">Welcome, User</p>
-    </div>
-    <br />
-    <h3>th:each예시</h3>
+<h3>th:text예시</h3>
+<p th:text=" '안녕하세요. ' + ${hello} " >안녕 반가워</p>
+<br>
+<h3>th:utext예시</h3>
+<p th:utext="${uText}">hello</p>
+<br>
+<h3>th:value예시</h3>
+<input th:value="${value}" />
+<br>
+<h3>th:with예시</h3>
+<div th:with="temp=${with}" th:text="${temp}"></div>
+<br>
+<h3>th:href예시</h3>
+<a th:href="@{/{id}(id=${link})}">링크</a>
+<a th:href="@{/hi}">링크2</a>
+<a th:href="@{https://www.naver.com}">네이버</a>
+<br>
+<h3>th:src예시</h3>
+<img th:src="${img}" />
+<br>
+<h3>th:switch예시</h3>
+<div th:switch="${userRole}">
+    <p th:case="'admin'">Hello, Admin</p>
+    <p th:case="'user'">Hello, User</p>
+    <p th:case="*">Hello, Unknown</p>
+</div>
+<br>
+<h3>th:if, th:unless예시</h3>
+<div>
+    <p th:if="${isAdmin}">Welcome, Admin</p>
+    <p th:unless="${isAdmin}">Welcome, User</p>
+</div>
+<br>
+<h3>th:each예시</h3>
+<ul>
+    <li th:each="name:${names}" th:text="${name}">
+    </li>
+</ul>
+<br>
+<h3>클래스예시</h3>
+<div th:text="${classHello.getAge()}"></div>
+
+
+
 
 </body>
 </html>

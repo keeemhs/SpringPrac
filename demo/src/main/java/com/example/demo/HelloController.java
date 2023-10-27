@@ -4,10 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
 public class HelloController {
+
     class Hello {
         private int age;
 
@@ -18,14 +20,15 @@ public class HelloController {
         public int getAge() {
             return age;
         }
+
     }
 
     @GetMapping("/hi")
-    public String gerHi(Model model) { // Model model: 컨트롤러 클래스안의 메서드가 파라미터로 받을수 있는 객체
+    public String getHi(Model model) { //Model model: 컨트롤러 클래스안의 메서드가 파라미터로 받을 수 있는 객체
 
-        Hello hello = new Hello(age:26);
-        List<String> names = Arrays.asList("kim", "Lee", "Hong", "Park");
-        model.addAttribute("msg", "hi~~~~");
+        Hello hello = new Hello(25);
+        List<String> names = Arrays.asList("kim", "lee", "hong", "park");
+        model.addAttribute("msg", "hi~~~");
         model.addAttribute("hello", "Spring World");
         model.addAttribute("uText", "<strong>Hello</strong>");
         model.addAttribute("value", "이름을 입력하세요");
@@ -37,12 +40,12 @@ public class HelloController {
         model.addAttribute("names", names);
         model.addAttribute("classHello", hello);
 
-        // ${..}: 변수표현식 ${msg}
-        // ${..}: URL 링크 표현식 @{/hi}
-        // *{..}: 선택변수 표현식 *{msg} 단, th:object
-        // 컨트롤러 클래스에서 private String msg = "hi";
-        // model.addAttribute("Msg", new HelloControoler());
-        // 템플릿에서 <div th:object=${msg}><h1 th:text=*{msg}></h1></div>
+        //${..}: 변수표현식 ${msg}
+        //@{..}: URL 링크 표현식 @{/hi}
+        //*{..}: 선택변수 표현식 *{msg} 단, th:object
+        //컨트롤러 클래스에서 private String msg = "hi";
+        //medel.addAttribut("Msg", new HelloController());
+        //템플릿에서 <div th:object=${Msg}><h1 th:text=*{msg}></hi></div>
         return "hi";
     }
 }
