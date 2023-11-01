@@ -39,9 +39,7 @@ public class JdbsExampleApplication {
 	* 차이점
 	* - @Autowired: 스피링의 IoC컨테이너를 통해 의존성 주입을 사용, 어노테이션이 붙어있는 필드나 생성자는 스프링이
 	*               자동으로 해당 타입의 빈을 찾아 주입
-	* - new: 
-	*
-	*
+	* - new: 개발자가 명시적으로 객체를 생성하고 주입.
 	*
 	* */
 
