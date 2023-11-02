@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -20,12 +20,12 @@ public class MainController {
 
     @GetMapping("/users")
     public String getUsers(Model model) {
-        ArrayList<UserDTO> userList = (ArrayList<UserDTO>) mainService.getUserList();
+        List<UserDTO> userList = mainService.getUserList();
         model.addAttribute("list", userList);
         return "user";
     }
 
-    @GetMapping("/user/insert")
+    @GetMapping("/insert")
     public String getInsertUser(@RequestParam String name, @RequestParam String address, Model model) {
 
 
