@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.member.memberManage.mapper.MemberMapper">
+
+    <insert id="insertMember" parameterType="com.example.member.memberManage.dto.MemberDto">
+        INSERT INTO members (username, password, email) VALUES (#{username}, #{password}, #{email})
+    </insert>
+
+    <select id="findMemberByUsernameAndPassword" parameterType="com.example.member.memberManage.dto.LoginDto" resultType="com.example.member.memberManage.dto.MemberDto">
+        SELECT * FROM members WHERE username = #{username} AND password = #{password}
+    </select>
+
+    <update id="updateMember" parameterType="com.example.member.memberManage.dto.MemberDto">
+        UPDATE members SET username = #{username}, password = #{password}, email = #{email} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteMember" parameterType="java.lang.Long">
+        DELETE FROM members WHERE id = #{id}
+    </delete>
+
+</mapper>
