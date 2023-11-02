@@ -1,6 +1,12 @@
-package com.example.mybatis.mybtistest.dto;
+package com.example.mybatis.mybtistest.domain;
 
-public class UserDTO {
+//import lombok.Getter;
+//import lombok.Setter;
+//
+//
+//@Getter
+//@Setter
+public class Users {
 
     private int id;
     private String name;

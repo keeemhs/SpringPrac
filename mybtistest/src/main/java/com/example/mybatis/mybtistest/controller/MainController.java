@@ -1,9 +1,8 @@
 package com.example.mybatis.mybtistest.controller;
 
-import com.example.mybatis.mybtistest.domain.User;
+import com.example.mybatis.mybtistest.domain.Users;
 import com.example.mybatis.mybtistest.dto.UserDTO;
 import com.example.mybatis.mybtistest.service.MainService;
-import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +26,21 @@ public class MainController {
     }
 
     @GetMapping("/user/insert")
-    public String getInsertUser(@RequestParam String name, @RequestParam String address Model model) {
-        User user = new User();
+    public String getInsertUser(@RequestParam String name, @RequestParam String address, Model model) {
+
+
+        Users user = new Users();
         user.setName(name);
         user.setAddress(address);
+
+        mainService.addUser(user);
+
+        model.addAttribute("list", null);
+        return "user";
+
     }
+
+
+
 
 }

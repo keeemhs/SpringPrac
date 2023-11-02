@@ -1,7 +1,7 @@
 package com.example.mybatis.mybtistest.service;
 
 
-import com.example.mybatis.mybtistest.domain.User;
+import com.example.mybatis.mybtistest.domain.Users;
 import com.example.mybatis.mybtistest.dto.UserDTO;
 import com.example.mybatis.mybtistest.mapper.MainMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,9 @@ public class MainService {
 
     public List<UserDTO> getUserList() {
 
-        List<User> result = mainMapper.retrieveAll();
+        // 실제 데이터베이스에서 가져오는 Users배열
+        List<Users> result = mainMapper.findAll();
+        // 위에서 받은 Users배열을 UsersDTO배열로 반환하기
         List<UserDTO> users = new ArrayList<>();
 
         for( int i = 0; i < result.size(); i++) {
@@ -34,7 +36,8 @@ public class MainService {
         return users;
     }
 
-    public void addUser(User user) {
+    public void addUser(Users user) {
         mainMapper.insertUser(user);
     }
+
 }
