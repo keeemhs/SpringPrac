@@ -8,8 +8,8 @@
 </head>
 <body>
 <form id="login_form">
-    <input type="text" name="id" id="id" /><br/>
-    <input type="password" name="pw" /><br />
+    <input type="text" name="id" id="id" placeholder="아이디" /><br/>
+    <input type="password" name="pw" placeholder="비밀번호" /><br />
     <button type="button" onclick="login()" >로그인</button>
 </form>
 
@@ -26,6 +26,7 @@
             data
         }).then(res => {
             console.log(res)
+            document.location.href = `/data/${res.data.id}`
         })
     }
 </script>
