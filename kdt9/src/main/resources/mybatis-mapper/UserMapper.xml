@@ -6,4 +6,16 @@
     <select id="retrieveAll" resultType="com.mybatis.kdt9.domain.User">
         SELECT user.* FROM user
     </select>
+
+    <select id="getUserList" resultType="User">
+        SELECT * FROM users
+        <where>
+            <if test="name != null">
+                AND name = #{name}
+            </if>
+            <if test="email != null">
+                AND email = #{email}
+            </if>
+        </where>
+    </select>
 </mapper>

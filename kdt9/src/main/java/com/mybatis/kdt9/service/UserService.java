@@ -2,6 +2,7 @@ package com.mybatis.kdt9.service;
 
 import com.mybatis.kdt9.domain.User;
 import com.mybatis.kdt9.dto.UserDTO;
+import com.mybatis.kdt9.dto.UserDTOBuilder;
 import com.mybatis.kdt9.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,8 @@ public class UserService {
             users.add(user);
             // 검색된 u 하나씩의 데이터를 userDTO로 만들고
             // 그걸 users에 담아서 return 해야겠죠?
+
+            UserDTOBuilder userDTOBuilder = UserDTOBuilder.builder().id(u.getId()).name(u.getName()).build();
         }
         return users;
     }
