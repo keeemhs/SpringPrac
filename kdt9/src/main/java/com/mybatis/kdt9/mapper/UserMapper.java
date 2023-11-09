@@ -14,4 +14,6 @@ public interface UserMapper {
     // xml 파일을 참고하지 않고 sql을 직접 ( interface 에서 )
     @Insert("insert into user(name, nickname) values(#{name}, #{nickname})")
     void insertUser(User user);
+    // void insertUser(String name, String nickname)
 }
+
